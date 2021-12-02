@@ -2,12 +2,12 @@ package toyproduct.models;
 
 import toyproduct.*;
 
-public class HelicopterToy implements Toy {
+public class AsianCarToy implements Toy {
 
     final private Integer serialNumber;
-    final String type = "helicopter";
+    final String type = "car";
     
-    public HelicopterToy(Integer serialNumber){
+    public AsianCarToy(Integer serialNumber){
         this.serialNumber = serialNumber;
     }
     
@@ -28,12 +28,11 @@ public class HelicopterToy implements Toy {
     @Override
     public void label() {
         System.out.printf("Labelling '%s' '%d'\n",this.type, this.serialNumber);
-    
     }
 
     @Override
     public String toString() {
-        return "HelicopterToy{" + "serialNumber=" + serialNumber + '}';
+        return "AsianCarToy{" + "serialNumber=" + serialNumber + '}';
     }
     
     
