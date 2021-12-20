@@ -12,10 +12,11 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Toy> toys = new ArrayList<>();
-        
-        AmericanToyFactory americanToyFactory = new AmericanToyFactory();
-        AsianToyFactory asianToyFactory = new AsianToyFactory();
-        ToyBusiness toyBusiness = new ToyBusiness(asianToyFactory);
+        ToyBusiness toyBusiness = new ToyBusiness();
+        toyBusiness.add("car", new AmericanCarToyFactory());
+        toyBusiness.add("helicopter", new AsianCarToyFactory());
+        toyBusiness.add("submarine", new AmericanSubmarineToyFactory());
+
         
         Scanner in = new Scanner(System.in);
         String line = "";
@@ -25,6 +26,7 @@ public class Main {
             switch (line) {
                 case "car":
                 case "helicopter":
+                case "submarine":
                     toys.add(toyBusiness.produceToy(line));
                     System.out.println(
                                         "Built toys: "+toys.stream()
