@@ -1,5 +1,5 @@
 
-package toys;
+package factories;
 
 
 public class SerialNumberGenerator {
