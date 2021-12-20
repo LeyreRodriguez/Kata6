@@ -5,7 +5,10 @@
  */
 package toyproduct.models;
 
+import componentfactories.ComponentFactory;
+import componentfactories.regionalcomponentfactories.AmericanComponentFactory;
 import toyproduct.Toy;
+import toyproduct.components.Engine;
 
 /**
  *
@@ -15,10 +18,13 @@ public class AmericanSubmarineToy implements Toy {
 
     final private Integer serialNumber;
     final String type;
+    final private ComponentFactory factory;
+    private Engine engine;
 
     public AmericanSubmarineToy(Integer serialNumber) {
         this.serialNumber = serialNumber;
         this.type = "submarine";
+        this.factory = new AmericanComponentFactory();
     }
     
 
@@ -37,6 +43,13 @@ public class AmericanSubmarineToy implements Toy {
     public void label() {
         System.out.printf("Labelling '%s' '%d'\n",this.type, this.serialNumber);
     }
+    
+    @Override
+    public void prepare() {
+        this.engine = this.factory.createEngine();
+        
+    }
+    
     @Override
     public String toString() {
         return "AmericanSubmarineToy{" + "serialNumber=" + serialNumber + '}';
